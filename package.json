@@ -1,0 +1,22 @@
+{
+  "name": "apitunes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aschuff/APitunes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aschuff/APitunes/issues"
+  },
+  "homepage": "https://github.com/aschuff/APitunes#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
