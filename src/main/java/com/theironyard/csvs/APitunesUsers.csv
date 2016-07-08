@@ -1,0 +1,8 @@
+username,password,boolean isAdmin,boolean isArtist,boolean isUser
+erik,e,TRUE,TRUE,TRUE
+jon,j,TRUE,TRUE,TRUE
+amanda,a,TRUE,TRUE,TRUE
+riggan,r,TRUE,TRUE,TRUE
+hodor,h,FALSE,FALSE,TRUE
+joe,j,FALSE,FALSE,TRUE
+sam,s,FALSE,FALSE,TRUE
