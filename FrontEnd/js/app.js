@@ -18,15 +18,15 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/login', {
       controller: 'userController',
-      template: 'templates/loginTemplate.html',
+      templateUrl: 'templates/loginTemplate.html',
     })
     .when('/guest', {
       controller: 'guestController',
-      template: 'templates/guestTemplate.html',
+      templateUrl: 'templates/guestTemplate.html',
     })
     .when('/artist', {
       controller: 'artistController',
-      template: 'templates/artistTemplate.html',
+      templateUrl: 'templates/artistTemplate.html',
     });
 
 }]);
