@@ -7,5 +7,6 @@ import org.springframework.data.repository.CrudRepository;
  * Created by Erik on 7/8/16.
  */
 public interface UserRepository extends CrudRepository<User, Integer> {
+    public User findFirstByUsername(String username);
 
 }
