@@ -36,6 +36,14 @@ public class User {
         this.password = password;
     }
 
+    public User(String username, String password, boolean isAdmin, boolean isArtist, boolean isUser) {
+        this.username = username;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.isArtist = isArtist;
+        this.isUser = isUser;
+    }
+
     public int getId() {
         return id;
     }

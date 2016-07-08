@@ -1,5 +1,9 @@
 package com.theironyard.controllers;
 
+import com.theironyard.entities.User;
+import com.theironyard.services.LikeRepository;
+import com.theironyard.services.SongRepository;
+import com.theironyard.services.UserRepository;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,8 +44,8 @@ public class APitunesController {
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] columns = fileScanner.nextLine().split(",");
-                User user = new User(columns[0], columns[1], columns[2], columns[3], columns[4], columns[5]);
-
+                User user = new User(columns[0], columns[1], Boolean.valueOf(columns[2]), Boolean.valueOf(columns[3]), Boolean.valueOf(columns[4]));
+                users.save(user);
             }
         }
     }
