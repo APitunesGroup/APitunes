@@ -1,5 +1,4 @@
 package com.theironyard.controllers;
-import static java.util.Comparator.comparing;
 
 import com.theironyard.entities.Song;
 import com.theironyard.entities.User;
@@ -8,14 +7,11 @@ import com.theironyard.services.SongRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utilities.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,6 +60,76 @@ public class APitunesRestController {
         // sout sorted songs
         return sortedSongs;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @RequestMapping(path = "/upVote{id}", method = RequestMethod.POST)
+    public List<Song> upVotedSongList(HttpSession session, @PathVariable int id) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
+
+        Song upVotedSong = songs.findOne(id);
+        upVotedSong.setLikes(upVotedSong.getLikes() + 1);
+        songs.save(upVotedSong);
+
+        List<Song> entireList = (List<Song>) songs.findAll();
+        return entireList;
+
+    }
+    @RequestMapping(path = "/downVote{id}", method = RequestMethod.POST)
+    public List<Song> downVotedSongList(HttpSession session, @PathVariable int id) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
+
+        Song upVotedSong = songs.findOne(id);
+        upVotedSong.setLikes(upVotedSong.getLikes() - 1);
+        songs.save(upVotedSong);
+
+        List<Song> entireList = (List<Song>) songs.findAll();
+        return entireList;
+    }
+    @RequestMapping(path = "/logout", method = RequestMethod.POST)
+    public HttpStatus logout(HttpSession session) {
+        session.invalidate();
+
+        return HttpStatus.OK;
+    }
+
 }
 
 
