@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-// this service will handel all user data
+// this service will handle all user data
   app.factory('userService', ['$http', function($http){
     let users =[];
     let pass = [];
