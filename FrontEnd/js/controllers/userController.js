@@ -10,8 +10,9 @@ module.exports = function(app) {
 
 
       $scope.login = function(){
-          $location.path('/artist')
-        // userService.serverLogin();
+        console.log(`trying to send ${$scope.userInput} and ${$scope.pass}`);
+          // $location.path('/artist')
+        userService.serverLogin($scope.userInput,$scope.pass);
       }
 
 

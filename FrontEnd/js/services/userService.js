@@ -8,13 +8,22 @@ module.exports = function(app){
 
 
     return{
-      serverLogin: function(){
+      serverLogin: function(user,pass){
         $http({
               method: 'POST',
-              url: '/userList',
+              url: '/login',
+              data: {
+                username: user,
+                password: pass,
+              }
           }).then(function(response) {
-            if(response){
+            console.log("got response", response);
+
+            if(response.data.artist === true){
+              console.log("got response", response);
               $location.path('/artist');
+            } else {
+              alert("you need to be a user to access this page. Please use the guest link")
             }
           })
       },
