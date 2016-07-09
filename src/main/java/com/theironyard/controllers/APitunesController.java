@@ -4,6 +4,7 @@ import com.theironyard.entities.User;
 import com.theironyard.services.LikeRepository;
 import com.theironyard.services.SongRepository;
 import com.theironyard.services.UserRepository;
+import com.theironyard.utilities.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,19 +33,19 @@ public class APitunesController {
 
 
     @PostConstruct
-    public void init() throws SQLException, FileNotFoundException {
+    public void init() throws SQLException, FileNotFoundException, PasswordStorage.CannotPerformOperationException {
         Server.createWebServer().start();
         parseUsers("users.csv");
 
     }
-    public void parseUsers(String fileName) throws FileNotFoundException {
+    public void parseUsers(String fileName) throws FileNotFoundException, PasswordStorage.CannotPerformOperationException {
         if (users.count() == 0) {
             File usersFile = new File(fileName);
             Scanner fileScanner = new Scanner(usersFile);
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
                 String[] columns = fileScanner.nextLine().split(",");
-                User user = new User(columns[0], columns[1], Boolean.valueOf(columns[2]), Boolean.valueOf(columns[3]), Boolean.valueOf(columns[4]));
+                User user = new User(columns[0], PasswordStorage.createHash(columns[1]), Boolean.valueOf(columns[2]), Boolean.valueOf(columns[3]), Boolean.valueOf(columns[4]));
                 users.save(user);
             }
         }
