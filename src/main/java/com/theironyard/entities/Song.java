@@ -90,5 +90,20 @@ public class Song {
     public void setUser(User user) {
         this.user = user;
     }
+
+//    @Override
+//    public int compareTo(Object otherSong) {
+//        if (this.getLikes() < Integer.valueOf(otherSong.getLikes())){
+//            return -1;
+//
+//        } else if (this.getLikes() > (Song) Integer.valueOf(otherSong.getLikes())){
+//            return 1;
+//
+//        } else {
+//            return 0;
+//
+//        }
+//    }
 }
+
 
