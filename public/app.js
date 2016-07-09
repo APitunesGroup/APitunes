@@ -131,10 +131,19 @@ module.exports = function(app){
     let users =[];
     let pass = [];
 
+    $http({
+          method: 'GET',
+          url: '/userList',
+      }).then(function(response) {
+
+      })
 
 
 
     return{
+      login: function(){
+
+      },
       getUser: function(){
 
       },
