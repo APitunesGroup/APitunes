@@ -34,6 +34,15 @@ public class Song {
     public Song() {
     }
 
+    public Song(String artist, String title, String genre, String file, User user) {
+        this.artist = artist;
+        this.title = title;
+        this.genre = genre;
+        this.file = file;
+        this.user = user;
+
+    }
+
     public Song(String artist, String title, String file, String genre, int likes, User user) {
         this.artist = artist;
         this.title = title;
