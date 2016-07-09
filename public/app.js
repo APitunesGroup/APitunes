@@ -135,6 +135,9 @@ module.exports = function(app){
 
 
     return{
+      login: function(){
+
+      },
       getUser: function(){
 
       },
