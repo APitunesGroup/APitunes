@@ -137,7 +137,7 @@ module.exports = function(app){
 },{}],6:[function(require,module,exports){
 module.exports = function(app){
 
-// this service will handel all user data
+// this service will handle all user data
   app.factory('userService', ['$http', function($http){
 
 
