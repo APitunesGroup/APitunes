@@ -9,7 +9,7 @@ module.exports = function(app) {
 
 
 
-
+      getArtistSongs();
 
 
 
@@ -30,9 +30,10 @@ module.exports = function(app) {
 
 
 
-
-
-
+    $scope.listSongs = function(){
+        console.log("get some tunes");
+      songService.getAllSongs();
+    };
 
 
 
@@ -61,8 +62,9 @@ module.exports = function(app) {
 
 
       $scope.login = function(){
-          $location.path('/artist')
-        // userService.serverLogin();
+        console.log(`trying to send ${$scope.userInput} and ${$scope.pass}`);
+          // $location.path('/artist')
+        userService.serverLogin($scope.userInput,$scope.pass);
       }
 
 
@@ -117,17 +119,17 @@ module.exports = function(app){
       getAllSongs: function(){
         $http({
               method: 'GET',
-              url: '/guestSongs',
+              url: '/userList',
           }).then(function(response) {
-
+            console.log("all songs",response);
           })
       },
       getArtistSongs: function(){
         $http({
               method: 'GET',
-              url: '/artistSongs',
+              url: '/artistList',
           }).then(function(response) {
-
+            console.log("artist songs", response);
           })
       },
     };
@@ -145,13 +147,22 @@ module.exports = function(app){
 
 
     return{
-      serverLogin: function(){
+      serverLogin: function(user,pass){
         $http({
               method: 'POST',
-              url: '/userList',
+              url: '/login',
+              data: {
+                username: user,
+                password: pass,
+              }
           }).then(function(response) {
-            if(response){
+            console.log("got response", response);
+
+            if(response.data.artist === true){
+              console.log("got response", response);
               $location.path('/artist');
+            } else {
+              alert("you need to be a user to access this page. Please use the guest link")
             }
           })
       },

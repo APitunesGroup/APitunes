@@ -4,9 +4,10 @@ module.exports = function(app) {
 
 
 
-
-
-
+    $scope.listSongs = function(){
+        console.log("get some tunes");
+      songService.getAllSongs();
+    };
 
 
 

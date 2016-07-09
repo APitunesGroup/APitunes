@@ -10,17 +10,17 @@ module.exports = function(app){
       getAllSongs: function(){
         $http({
               method: 'GET',
-              url: '/guestSongs',
+              url: '/userList',
           }).then(function(response) {
-
+            console.log("all songs",response);
           })
       },
       getArtistSongs: function(){
         $http({
               method: 'GET',
-              url: '/artistSongs',
+              url: '/artistList',
           }).then(function(response) {
-
+            console.log("artist songs", response);
           })
       },
     };
