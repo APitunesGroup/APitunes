@@ -65,6 +65,21 @@ public class APitunesRestController {
         return sortedSongs;
     }
 
+    @RequestMapping(path = "/artistList", method = RequestMethod.GET)
+    public List<Song> allArtistSongs(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
+        ArrayList<Song> sortedSongs = (ArrayList<Song>) songs.findByUser(user);
+
+        sortedSongs
+                .stream()
+                .sorted((s1, s2) -> Integer.compare(s2.getLikes(),
+                        s1.getLikes()));
+        //test here...
+        // sout sorted songs
+        return sortedSongs;
+    }
+
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public void addSong (MultipartFile audioFile, HttpSession session, String artist, String title, String genre, HttpServletResponse response) throws Exception {
         String username = (String) session.getAttribute("username");
