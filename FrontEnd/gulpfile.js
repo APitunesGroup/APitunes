@@ -9,7 +9,7 @@ gulp.task('default', ['html', 'css', 'js'])
 
 // SASS TO CSS
 gulp.task('css', function (){
-  gulp.src('./css/styles.css')
+  gulp.src('./sass/styles.scss')
   .pipe(sass())
   .pipe(gulp.dest('../public'))
 });
@@ -33,7 +33,7 @@ gulp.task('js', function(){
 gulp.task('watch', function () {
     gulp.watch('./js/*.js', ['js']);
     gulp.watch('./js/*/*.js', ['js']);
-    gulp.watch('./css/*.css', ['css']);
+    gulp.watch('./sass/*.sass', ['css']);
     gulp.watch('./index.html', ['html']);
     gulp.watch('./templates/*.html', ['html']);
 });

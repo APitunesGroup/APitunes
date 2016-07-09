@@ -2,3 +2,78 @@
   border: 1px solid #cacaca;
   padding: 1rem;
   border-radius: 3px; }
+
+
+h1.ng-scope {
+  text-align: center; }
+
+.sub-nav {
+  background-color: #f2f2f2;
+  padding: 0.5rem 0.5rem 0.5rem 0; }
+  .sub-nav li {
+    color: #999999;
+    font-size: 0.77778rem;
+    padding-left: 0.88889rem; }
+    .sub-nav li.active a {
+      border-radius: 3px;
+      background: #008CBA;
+      color: #fff;
+      cursor: default;
+      font-weight: normal;
+      padding: 0.16667rem 0.88889rem; }
+
+.sub-nav {
+  background-color: #f2f2f2;
+  padding: 0.5rem 0.5rem 0.5rem 0; }
+  .sub-nav li {
+    color: #999999;
+    font-size: 0.77778rem;
+    padding-left: 0.88889rem; }
+    .sub-nav li.active a {
+      border-radius: 3px;
+      background: #008CBA;
+      color: #fff;
+      cursor: default;
+      font-weight: normal;
+      padding: 0.16667rem 0.88889rem; }
+<<<<<<< HEAD
+=======
+
+h3 {
+  text-align: center; }
+
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px; }
+
+.file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+button.file-upload {
+  margin-left: 40%;
+  padding: .5rem 2rem 1.0625rem 2rem;
+  font-size: 1rem;
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: normal;
+  line-height: normal;
+  transition: background-color 300ms ease-out;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+
+form.ng-pristine.ng-valid {
+  border: solid 1px lightgray; }
+>>>>>>> 66d062f689d794d15baf38878a1399f591c78e54
