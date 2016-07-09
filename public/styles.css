@@ -3,7 +3,6 @@
   padding: 1rem;
   border-radius: 3px; }
 
-
 h1.ng-scope {
   text-align: center; }
 
@@ -22,6 +21,11 @@ h1.ng-scope {
       font-weight: normal;
       padding: 0.16667rem 0.88889rem; }
 
+#like, #dislike {
+  margin-left: 3%;
+  margin-bottom: 1%;
+  display: block; }
+
 .sub-nav {
   background-color: #f2f2f2;
   padding: 0.5rem 0.5rem 0.5rem 0; }
@@ -36,8 +40,11 @@ h1.ng-scope {
       cursor: default;
       font-weight: normal;
       padding: 0.16667rem 0.88889rem; }
-<<<<<<< HEAD
-=======
+
+#like, #dislike {
+  margin-left: 3%;
+  margin-bottom: 1%;
+  display: block; }
 
 h3 {
   text-align: center; }
@@ -76,4 +83,3 @@ button.file-upload {
 
 form.ng-pristine.ng-valid {
   border: solid 1px lightgray; }
->>>>>>> 66d062f689d794d15baf38878a1399f591c78e54
