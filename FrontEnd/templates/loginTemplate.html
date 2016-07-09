@@ -1,8 +1,4 @@
 <h1>APitunes</h1>
-
-<a href="#/guest">Top Voted Songs</a>
-
-<a href="#/artist">Artist Profile</a>
 <!-- LOGIN FORM -->
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
@@ -11,16 +7,15 @@
       <div class="row column log-in-form">
         <h4 class="text-center">Log in with your account</h4>
         <label>Username
-          <input type="text" placeholder="username or artist/band">
+          <input type="text" ng-model='userInput' placeholder="username or artist/band">
         </label>
         <label>Password
           <input type="text" placeholder="Password">
         </label>
         <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-        <p><a type="submit" class="button expanded" href="#/artist">Log In</a></p>
+        <p><a type="submit" class="button expanded" ng-click='login()'>Log In</a></p>
         <p class="text-center"><a href="#/guest">Login as Guest</a></p>
       </div>
     </form>
-
   </div>
 </div>

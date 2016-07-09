@@ -50,7 +50,7 @@ module.exports = function(app) {
 
 },{}],3:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('userController', ['$scope', 'userService', function($scope, userService) {
+    app.controller('userController', ['$scope', '$location', 'userService', function($scope, $location, userService) {
 
 
 
@@ -60,13 +60,10 @@ module.exports = function(app) {
 
 
 
-
-
-
-
-
-
-
+      $scope.login = function(){
+          $location.path('/artist')
+        // userService.serverLogin();
+      }
 
 
 
@@ -112,12 +109,26 @@ module.exports = function(app){
 
 
   app.factory('songService',['$http', function($http){
-    let songList = [];
-    
+    let allSongList = [];
+    let artistSongList = [];
+
 
     return{
-      getSongs: function(){
+      getAllSongs: function(){
+        $http({
+              method: 'GET',
+              url: '/guestSongs',
+          }).then(function(response) {
 
+          })
+      },
+      getArtistSongs: function(){
+        $http({
+              method: 'GET',
+              url: '/artistSongs',
+          }).then(function(response) {
+
+          })
       },
     };
   }]);
@@ -126,25 +137,29 @@ module.exports = function(app){
 },{}],6:[function(require,module,exports){
 module.exports = function(app){
 
-// this service will handel all user data
+// this service will handle all user data
   app.factory('userService', ['$http', function($http){
-    let users =[];
-    let pass = [];
+
 
 
 
 
     return{
-      login: function(){
-
+      serverLogin: function(){
+        $http({
+              method: 'POST',
+              url: '/userList',
+          }).then(function(response) {
+            if(response){
+              $location.path('/artist');
+            }
+          })
       },
-      getUser: function(){
 
-      },
 
-      validate: function(){
 
-      },
+
+
     };
   }]);
 };

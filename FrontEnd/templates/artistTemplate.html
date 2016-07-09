@@ -1,44 +1,46 @@
-<h1>Artist View</h1>
-
-<a href="#/login">Logout</a>
-
-<a href="#/guest">Guest</a>
+<h1>Welcome {{artist}}</h1>
+<ul class="sub-nav menu" role="navigation" title="Filter Menu List">
+  <li class="sub-nav-title"></li>
+  <li class="active"><span class="show-for-sr">You're viewing </span></li>
+  <li><a href="#/artist">My Profile</a></li>
+  <li><a href="#/guest">Fan Feedback</a></li>
+  <li><a href="#/logout">Logout</a></li>
+</ul>
 
 <div class="row">
     <div class="large-12 columns">
         <div class="panel">
-            <h1>Artist/Band Name</h1>
+            <h2>Artist/Band Name</h2>
         </div>
     </div>
 </div>
 
 <div class="row">
 
-
     <div class="large-3 columns ">
         <div class="panel">
             <a href="#"><img src="http://placehold.it/300x240&text=[img]" /></a>
-            <h5><a href="#">Your Name</a></h5>
-            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            <h5><a href="#">Band Name</a></h5>
+            <!-- <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
                 <section class="section">
-                    <h5 class="title"><a href="#">Section 1</a></h5>
+                    <h5 class="title"><a href="#">Rock</a></h5>
                 </section>
                 <section class="section">
-                    <h5 class="title"><a href="#">Section 2</a></h5>
+                    <h5 class="title"><a href="#">Hip</a></h5>
                 </section>
                 <section class="section">
-                    <h5 class="title"><a href="#">Section 3</a></h5>
+                    <h5 class="title"><a href="#"></a></h5>
                 </section>
                 <section class="section">
-                    <h5 class="title"><a href="#">Section 4</a></h5>
+                    <h5 class="title"><a href="#"></a></h5>
+                </section> -->
+                <!-- <section class="section">
+                    <h5 class="title"><a href="#"></a></h5>
                 </section>
                 <section class="section">
-                    <h5 class="title"><a href="#">Section 5</a></h5>
-                </section>
-                <section class="section">
-                    <h5 class="title"><a href="#">Section 6</a></h5>
-                </section>
-            </div>
+                    <h5 class="title"><a href="#"></a></h5>
+                </section> -->
+            <!-- </div> -->
         </div>
     </div>
 
@@ -106,8 +108,16 @@
 
 
     <aside class="large-3 columns hide-for-small">
-        <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
-        <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
+      <h3>Upload Music</h3>
+      <form class="" action="index.html" method="post">
+      <input type="text" name="name" value="" placeholder="arist/band">
+      <input type="text" name="name" value="" placeholder="song title">
+      <input type="text" name="name" value="" placeholder="genre">
+      <input type="text" name="name" value="" placeholder="filename">
+      <button class="file-upload">
+        <input type="file" class="file-input">Choose File
+      </button>
+      </form>
     </aside>
 </div>
 
@@ -116,17 +126,7 @@
         <hr/>
         <div class="row">
             <div class="large-5 columns">
-                <p>&copy; Copyright no one at all. Go to town.</p>
-            </div>
-            <div class="large-7 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Section 1</a></li>
-                    <li><a href="#">Section 2</a></li>
-                    <li><a href="#">Section 3</a></li>
-                    <li><a href="#">Section 4</a></li>
-                    <li><a href="#">Section 5</a></li>
-                    <li><a href="#">Section 6</a></li>
-                </ul>
+                <p>&copy; Copyright APitunes. The Iron Yard 2016.</p>
             </div>
         </div>
     </div>
