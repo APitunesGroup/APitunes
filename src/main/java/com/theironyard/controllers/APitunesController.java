@@ -34,7 +34,7 @@ public class APitunesController {
     @PostConstruct
     public void init() throws SQLException, FileNotFoundException {
         Server.createWebServer().start();
-        parseUsers("APitunesUsers.csv");
+        parseUsers("users.csv");
 
     }
     public void parseUsers(String fileName) throws FileNotFoundException {
