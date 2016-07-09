@@ -42,12 +42,16 @@ h1.ng-scope {
       padding: 0.16667rem 0.88889rem; }
 
 #like, #dislike {
-  margin-left: 3%;
+  margin-left: 15%;
   margin-bottom: 1%;
   display: block; }
 
 h3 {
   text-align: center; }
+
+#playButton {
+  width: 10%;
+  margin-right: 3%; }
 
 .file-upload {
   position: relative;
