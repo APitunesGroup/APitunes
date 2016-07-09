@@ -7,10 +7,8 @@ import com.theironyard.services.SongRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utilities.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -92,6 +90,40 @@ public class APitunesRestController {
         response.sendRedirect("/#/artist");
 
     }
+
+    @RequestMapping(path = "/upVote{id}", method = RequestMethod.POST)
+    public List<Song> upVotedSongList(HttpSession session, @PathVariable int id) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
+
+        Song upVotedSong = songs.findOne(id);
+        upVotedSong.setLikes(upVotedSong.getLikes() + 1);
+        songs.save(upVotedSong);
+
+        List<Song> entireList = (List<Song>) songs.findAll();
+        return entireList;
+
+    }
+    @RequestMapping(path = "/downVote{id}", method = RequestMethod.POST)
+    public List<Song> downVotedSongList(HttpSession session, @PathVariable int id) {
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
+
+        Song upVotedSong = songs.findOne(id);
+        upVotedSong.setLikes(upVotedSong.getLikes() - 1);
+        songs.save(upVotedSong);
+
+        List<Song> entireList = (List<Song>) songs.findAll();
+        return entireList;
+    }
+    @RequestMapping(path = "/logout", method = RequestMethod.POST)
+    public HttpStatus logout(HttpSession session) {
+        session.invalidate();
+
+        return HttpStatus.OK;
+    }
+
 }
+
 
 
