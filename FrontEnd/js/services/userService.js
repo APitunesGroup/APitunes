@@ -1,7 +1,7 @@
 module.exports = function(app){
 
 // this service will handle all user data
-  app.factory('userService', ['$http', '$location', function($http, $location){
+  app.factory('userService', ['$http','$location', function($http, $location){
 
 
     return{
