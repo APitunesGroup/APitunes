@@ -37,6 +37,9 @@ public class APitunesRestController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User login(@RequestBody User user, HttpSession session) throws Exception {
         User userFromDatabase = users.findFirstByUsername(user.getUsername());
+        System.out.println(user.getUsername());
+        System.out.println(userFromDatabase);
+
         if (userFromDatabase == null) {
             user.setPassword(PasswordStorage.createHash(user.getPassword()));
             user.setUsername(user.getUsername());
@@ -49,7 +52,7 @@ public class APitunesRestController {
             throw new Exception("BAD PASS");
         }
         session.setAttribute("username", user.getUsername());
-        return user;
+        return userFromDatabase;
     }
     @RequestMapping(path = "/userList", method = RequestMethod.GET)
     public List<Song> allSongs() {
