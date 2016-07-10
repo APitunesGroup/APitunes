@@ -82,7 +82,7 @@ public class APitunesRestController {
     }
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public void addSong (@RequestBody Song song, HttpSession session, MultipartFile audioFile, HttpServletResponse response) throws Exception {
+    public void addSong (HttpSession session, String artist, String title, String genre, MultipartFile audioFile,  HttpServletResponse response) throws Exception {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
         if (user.getIsArtist() == false) {
@@ -90,17 +90,12 @@ public class APitunesRestController {
         }
 
         if (audioFile.getContentType().contains("audio")) {
-            System.out.println(audioFile);
             File dir = new File("Public/songs");
             dir.mkdirs();
             File songFile = File.createTempFile("song", audioFile.getOriginalFilename(), dir);
             FileOutputStream fos = new FileOutputStream(songFile);
             fos.write(audioFile.getBytes());
-            song.setFile(songFile.getName());
-            song.getArtist();
-            song.getTitle();
-            song.getGenre();
-            song.setUser(user);
+            Song song = new Song(artist, title, genre, songFile.getName(), user);
             songs.save(song);
 
         }
@@ -109,6 +104,7 @@ public class APitunesRestController {
         }
 
         response.sendRedirect("/#/artist");
+
 
     }
 
