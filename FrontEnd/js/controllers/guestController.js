@@ -10,7 +10,27 @@ module.exports = function(app) {
     };
 
 
+    $scope.like = function(){
+      console.log("i like this");
+      $http({
+        method: 'POST',
+        url:'/upVote{id}',
+        data: {id},
+      }).then(function(response){
+        log
+      })
+    };
 
+    $scope.dislike = function(){
+      console.log("i dont like this");
+      $http({
+        method: 'POST',
+        url:'/downVote{id}',
+        data: {id},
+      }).then(function(response){
+        log
+      })
+    };
 
 
 

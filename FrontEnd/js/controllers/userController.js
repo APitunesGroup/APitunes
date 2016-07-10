@@ -1,9 +1,9 @@
 module.exports = function(app) {
-    app.controller('userController', ['$scope', '$location', 'userService', function($scope, $location, userService) {
+    app.controller('userController', ['$scope', '$location', 'userService', 'songService', function($scope, $location, userService) {
 
 
 
-
+      songService.getAllSongs();
 
 
 

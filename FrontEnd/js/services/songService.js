@@ -13,6 +13,7 @@ module.exports = function(app){
               url: '/userList',
           }).then(function(response) {
             console.log("all songs",response);
+            angular.copy(response.data, allSongList);
           })
       },
       getArtistSongs: function(){
@@ -21,6 +22,7 @@ module.exports = function(app){
               url: '/artistList',
           }).then(function(response) {
             console.log("artist songs", response);
+            angulr.copy(response.data, artistSongList);
           })
       },
     };

@@ -17,12 +17,13 @@ module.exports = function(app){
                 password: pass,
               }
           }).then(function(response) {
+            console.log("here is whats coming back", response );
             console.log("got response", response.data.artist);
 
             if(response.data.artist === false){
               // console.log("got response", response);
               $location.path('/artist');
-            } 
+            }
           })
       },
 
