@@ -64,11 +64,11 @@ module.exports = function(app) {
 
 },{}],3:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('userController', ['$scope', '$location', 'userService', 'songService', function($scope, $location, userService) {
+    app.controller('userController', ['$scope', '$location', 'userService', 'songService', function($scope, $location, userService, songService) {
 
 
 
-      songService.getAllSongs();
+      // songService.getAllSongs();
 
 
 
@@ -144,7 +144,7 @@ module.exports = function(app){
               url: '/artistList',
           }).then(function(response) {
             console.log("artist songs", response);
-            angulr.copy(response.data, artistSongList);
+            angular.copy(response.data, artistSongList);
           })
       },
     };
@@ -155,15 +155,8 @@ module.exports = function(app){
 module.exports = function(app){
 
 // this service will handle all user data
-<<<<<<< HEAD
   app.factory('userService', ['$http', '$location', function($http, $location){
-=======
-  app.factory('userService', ['$http','$location', function($http, $location){
 
-
-
-
->>>>>>> 5eb300c886d24041fb29a0e61a37ebfab07a7c92
 
     return{
       serverLogin: function(user,pass){
@@ -176,10 +169,9 @@ module.exports = function(app){
               }
           }).then(function(response) {
             console.log("here is whats coming back", response );
-            console.log("got response", response.data.artist);
+            console.log("got response", response.data.isArtist);
 
-            if(response.data.artist === false){
-              // console.log("got response", response);
+            if(response.data.isArtist === true){
               $location.path('/artist');
             }
           })

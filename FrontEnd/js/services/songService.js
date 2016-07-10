@@ -22,7 +22,7 @@ module.exports = function(app){
               url: '/artistList',
           }).then(function(response) {
             console.log("artist songs", response);
-            angulr.copy(response.data, artistSongList);
+            angular.copy(response.data, artistSongList);
           })
       },
     };

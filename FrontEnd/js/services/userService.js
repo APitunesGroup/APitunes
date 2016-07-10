@@ -15,10 +15,9 @@ module.exports = function(app){
               }
           }).then(function(response) {
             console.log("here is whats coming back", response );
-            console.log("got response", response.data.artist);
+            console.log("got response", response.data.isArtist);
 
-            if(response.data.artist === false){
-              // console.log("got response", response);
+            if(response.data.isArtist === true){
               $location.path('/artist');
             }
           })
