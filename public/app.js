@@ -140,11 +140,15 @@ module.exports = function(app){
 module.exports = function(app){
 
 // this service will handle all user data
+<<<<<<< HEAD
+  app.factory('userService', ['$http', '$location', function($http, $location){
+=======
   app.factory('userService', ['$http','$location', function($http, $location){
 
 
 
 
+>>>>>>> 5eb300c886d24041fb29a0e61a37ebfab07a7c92
 
     return{
       serverLogin: function(user,pass){
@@ -161,13 +165,9 @@ module.exports = function(app){
             if(response.data.artist === false){
               // console.log("got response", response);
               $location.path('/artist');
-            } 
+            }
           })
       },
-
-
-
-
 
     };
   }]);
