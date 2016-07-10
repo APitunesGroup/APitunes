@@ -54,11 +54,11 @@
 
     <aside class="large-3 columns hide-for-small">
         <h3>Upload Music</h3>
-        <form class="" action="/upload" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" value="" placeholder="arist/band">
-            <input type="text" name="name" value="" placeholder="song title">
-            <input type="text" name="name" value="" placeholder="genre">
-            <input type="file" class="file-input" placeholder="music">
+        <form class="" method="post" action="/upload" enctype="multipart/form-data">
+            <input type="text" name="artist" value="" placeholder="arist/band">
+            <input type="text" name="title" value="" placeholder="song title">
+            <input type="text" name="genre" value="" placeholder="genre">
+            <input type="file" name="audioFile" class="file-input" placeholder="music">
             <button type="submit" class="file-input" name="button" value="add this song">Upload</button>
         </form>
     </aside>

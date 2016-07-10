@@ -23,8 +23,13 @@ module.exports = function(app){
               console.log(currentUser);
             }
           })
-          return currentUser;
       },
+
+      getCurrentUser: function() {
+        console.log("user info", currentUser);
+        return currentUser
+      },
+
 
     };
   }]);
