@@ -4,12 +4,12 @@ module.exports = function(app) {
       $scope.artistSongList = songService.artistSongList;
       $scope.artistSongList = songService.allSongList;
 
-      checkUser = function(){
-        console.log("user info", userService.currentUser);
-      }
+
+      console.log("user info", userService.currentUser);
+
       // upload button click event
         songService.getArtistSongs();
-        checkUser();
+      
 
     }]);
 };
@@ -175,6 +175,7 @@ module.exports = function(app){
               console.log(currentUser);
             }
           })
+          return currentUser;
       },
 
     };

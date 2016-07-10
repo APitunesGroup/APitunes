@@ -23,6 +23,7 @@ module.exports = function(app){
               console.log(currentUser);
             }
           })
+          return currentUser;
       },
 
     };
