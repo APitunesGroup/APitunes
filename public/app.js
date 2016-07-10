@@ -2,13 +2,6 @@
 module.exports = function(app) {
     app.controller('artistController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
 
-
-
-
-
-
-
-
       songService.getArtistSongs();
 
 
@@ -36,7 +29,27 @@ module.exports = function(app) {
     };
 
 
+    $scope.like = function(){
+      console.log("i like this");
+      $http({
+        method: 'POST',
+        url:'/upVote{id}',
+        data: {id},
+      }).then(function(response){
+        log
+      })
+    };
 
+    $scope.dislike = function(){
+      console.log("i dont like this");
+      $http({
+        method: 'POST',
+        url:'/downVote{id}',
+        data: {id},
+      }).then(function(response){
+        log
+      })
+    };
 
 
 
@@ -51,11 +64,11 @@ module.exports = function(app) {
 
 },{}],3:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('userController', ['$scope', '$location', 'userService', function($scope, $location, userService) {
+    app.controller('userController', ['$scope', '$location', 'userService', 'songService', function($scope, $location, userService, songService) {
 
 
 
-
+      // songService.getAllSongs();
 
 
 
@@ -122,6 +135,7 @@ module.exports = function(app){
               url: '/userList',
           }).then(function(response) {
             console.log("all songs",response);
+            angular.copy(response.data, allSongList);
           })
       },
       getArtistSongs: function(){
@@ -130,6 +144,7 @@ module.exports = function(app){
               url: '/artistList',
           }).then(function(response) {
             console.log("artist songs", response);
+            angular.copy(response.data, artistSongList);
           })
       },
     };
@@ -140,15 +155,8 @@ module.exports = function(app){
 module.exports = function(app){
 
 // this service will handle all user data
-<<<<<<< HEAD
-  app.factory('userService', ['$http', '$location', function($http, $location){
-=======
   app.factory('userService', ['$http','$location', function($http, $location){
 
-
-
-
->>>>>>> 5eb300c886d24041fb29a0e61a37ebfab07a7c92
 
     return{
       serverLogin: function(user,pass){
@@ -160,10 +168,10 @@ module.exports = function(app){
                 password: pass,
               }
           }).then(function(response) {
-            console.log("got response", response.data.artist);
+            console.log("here is whats coming back", response );
+            console.log("got response", response.data.isArtist);
 
-            if(response.data.artist === false){
-              // console.log("got response", response);
+            if(response.data.isArtist === true){
               $location.path('/artist');
             }
           })
