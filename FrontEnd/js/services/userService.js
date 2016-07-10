@@ -1,11 +1,7 @@
 module.exports = function(app){
 
 // this service will handle all user data
-  app.factory('userService', ['$http', function($http){
-
-
-
-
+  app.factory('userService', ['$http', '$location', function($http, $location){
 
     return{
       serverLogin: function(user,pass){
@@ -22,13 +18,9 @@ module.exports = function(app){
             if(response.data.artist === true){
               console.log("got response", response);
               $location.path('/artist');
-            } 
+            }
           })
       },
-
-
-
-
 
     };
   }]);
