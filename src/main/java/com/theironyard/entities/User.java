@@ -68,7 +68,7 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
@@ -76,7 +76,7 @@ public class User {
         isAdmin = isAdmin;
     }
 
-    public boolean isArtist() {
+    public boolean getIsArtist() {
         return isArtist;
     }
 
@@ -84,7 +84,7 @@ public class User {
         isArtist = isArtist;
     }
 
-    public boolean isUser() {
+    public boolean getIsUser() {
         return isUser;
     }
 
