@@ -3,8 +3,6 @@ module.exports = function(app) {
       $scope.artistSongList = songService.artistSongList;
       $scope.artistSongList = songService.allSongList;
 
-
-      // upload button click event
         songService.getArtistSongs();
 
 
