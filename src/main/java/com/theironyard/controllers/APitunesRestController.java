@@ -37,6 +37,9 @@ public class APitunesRestController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User login(@RequestBody User user, HttpSession session) throws Exception {
         User userFromDatabase = users.findFirstByUsername(user.getUsername());
+        System.out.println(user.getUsername());
+        System.out.println(userFromDatabase);
+
         if (userFromDatabase == null) {
             user.setPassword(PasswordStorage.createHash(user.getPassword()));
             user.setUsername(user.getUsername());
@@ -49,7 +52,7 @@ public class APitunesRestController {
             throw new Exception("BAD PASS");
         }
         session.setAttribute("username", user.getUsername());
-        return user;
+        return userFromDatabase;
     }
     @RequestMapping(path = "/userList", method = RequestMethod.GET)
     public List<Song> allSongs() {
@@ -84,7 +87,7 @@ public class APitunesRestController {
     public void addSong (MultipartFile audioFile, HttpSession session, String artist, String title, String genre, HttpServletResponse response) throws Exception {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
-        if (user.isArtist() == false) {
+        if (user.getIsArtist() == false) {
             throw new Exception("Must be an artist to upload.");
         }
 
