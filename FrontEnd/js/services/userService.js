@@ -22,9 +22,7 @@ module.exports = function(app){
             if(response.data.artist === false){
               // console.log("got response", response);
               $location.path('/artist');
-            } else {
-              alert("you need to be a user to access this page. Please use the guest link")
-            }
+            } 
           })
       },
 
