@@ -84,7 +84,7 @@ public class APitunesRestController {
     public void addSong (MultipartFile audioFile, HttpSession session, String artist, String title, String genre, HttpServletResponse response) throws Exception {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
-        if (user.isArtist() == false) {
+        if (user.getIsArtist() == false) {
             throw new Exception("Must be an artist to upload.");
         }
 
