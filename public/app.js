@@ -7,9 +7,8 @@ module.exports = function(app) {
 
       console.log("user info", userService.currentUser);
 
-      // upload button click event
         songService.getArtistSongs();
-      
+
 
     }]);
 };
