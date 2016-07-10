@@ -2,14 +2,17 @@
 module.exports = function(app) {
     app.controller('artistController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
       $scope.artistSongList = songService.artistSongList;
-      $scope.artistSongList = songService.allSongList;
+      // $scope.artistSongList = songService.allSongList;
+      $scope.user = userService.currentUser;
 
 
+
+      userService.getCurrentUser();
       console.log("user info", userService.currentUser);
 
       // upload button click event
         songService.getArtistSongs();
-      
+
 
     }]);
 };
@@ -175,8 +178,13 @@ module.exports = function(app){
               console.log(currentUser);
             }
           })
-          return currentUser;
       },
+
+      getCurrentUser: function() {
+        console.log("user info", currentUser);
+        return currentUser
+      },
+
 
     };
   }]);
