@@ -1,24 +1,22 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
     app.controller('artistController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
-
-      songService.getArtistSongs();
-
-
+      $scope.artistSongList = songService.artistSongList;
+      $scope.artistSongList = songService.allSongList;
 
 
+      console.log("user info", userService.currentUser);
 
-
-
-
-
+      // upload button click event
+        songService.getArtistSongs();
+      
 
     }]);
 };
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('guestController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
+    app.controller('guestController', ['$scope', 'userService', 'songService', '$http', function($scope, userService, songService, $http) {
 
 
 
@@ -156,7 +154,7 @@ module.exports = function(app){
 
 // this service will handle all user data
   app.factory('userService', ['$http','$location', function($http, $location){
-
+    let currentUser = {};
 
     return{
       serverLogin: function(user,pass){
@@ -173,8 +171,11 @@ module.exports = function(app){
 
             if(response.data.isArtist === true){
               $location.path('/artist');
+              angular.copy(response.data, currentUser )
+              console.log(currentUser);
             }
           })
+          return currentUser;
       },
 
     };

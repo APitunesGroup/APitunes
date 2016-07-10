@@ -2,7 +2,7 @@ module.exports = function(app){
 
 // this service will handle all user data
   app.factory('userService', ['$http','$location', function($http, $location){
-
+    let currentUser = {};
 
     return{
       serverLogin: function(user,pass){
@@ -19,8 +19,11 @@ module.exports = function(app){
 
             if(response.data.isArtist === true){
               $location.path('/artist');
+              angular.copy(response.data, currentUser )
+              console.log(currentUser);
             }
           })
+          return currentUser;
       },
 
     };
