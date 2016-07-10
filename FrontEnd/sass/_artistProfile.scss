@@ -60,6 +60,24 @@ input.file-input {
   cursor: pointer;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
+button.file-input {
+  margin-left: 57%;
+  margin-bottom: 1%;
+  padding: .5rem 2rem .5rem 2rem;
+  font-size: 1rem;
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: normal;
+  line-height: normal;
+  transition: background-color 300ms ease-out;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
 form.ng-pristine.ng-valid {
   border: solid 1px lightgray;
 }
