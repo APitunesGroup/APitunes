@@ -4,9 +4,11 @@ module.exports = function(app) {
       $scope.artistSongList = songService.allSongList;
 
 
+      console.log("user info", userService.currentUser);
+
       // upload button click event
         songService.getArtistSongs();
-
+      
 
     }]);
 };
