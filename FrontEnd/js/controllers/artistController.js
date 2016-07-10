@@ -8,7 +8,7 @@ module.exports = function(app) {
 
 
 
-      getArtistSongs();
+      songService.getArtistSongs();
 
 
 
