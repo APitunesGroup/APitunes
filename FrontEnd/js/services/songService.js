@@ -24,7 +24,7 @@ module.exports = function(app){
           }).then(function(response) {
             // console.log("artist songs", response.data);
             angular.copy(response.data, artistSongList);
-            // console.log(artistSongList);
+            console.log(artistSongList);
           })
           // console.log("artits", artistSongList);
           return artistSongList;
