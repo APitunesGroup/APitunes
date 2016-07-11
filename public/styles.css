@@ -34,6 +34,9 @@ h1.ng-scope {
   margin-bottom: 1%;
   display: block; }
 
+.hidden {
+  display: none; }
+
 .sub-nav {
   background-color: #f2f2f2;
   padding: 0.5rem 0.5rem 0.5rem 0; }
@@ -112,3 +115,6 @@ button.file-input {
 
 form.ng-pristine.ng-valid {
   border: solid 1px lightgray; }
+
+.hidden {
+  display: none; }

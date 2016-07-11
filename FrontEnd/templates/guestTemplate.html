@@ -40,8 +40,10 @@
           <audio controls>
             <source src="" type="audio/mpeg"> Your browser does not support the audio element.
           </audio>
+          <div ng-model="guestLikes">
           <button ng-click='like()' id="like" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
           <button ng-click='dislike()' id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button>
+        </div>
           <h5>Likes: {{song.likes}}</h5>
         </div>
       <hr/>
