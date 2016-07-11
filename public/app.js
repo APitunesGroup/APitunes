@@ -39,6 +39,8 @@ module.exports = function(app) {
     app.controller('guestController', ['$scope', 'userService', 'songService', '$http', function($scope, userService, songService, $http) {
 
       $scope.artistSongList = songService.getArtistSongs();
+      $scope.user = userService.getCurrentUser();
+
 
 
 
@@ -68,6 +70,7 @@ module.exports = function(app) {
 
         })
       };
+
 
 
 
@@ -197,6 +200,11 @@ module.exports = function(app){
               $location.path('/artist');
               angular.copy(response.data, currentUser )
               console.log(currentUser);
+            }else if (response.data.isUser === true) {
+              $location.path('/guest');
+              angular.copy(response.data, currentUser )
+              console.log(currentUser);
+
             }
           })
       },
