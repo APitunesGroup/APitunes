@@ -1,4 +1,4 @@
-<h1>Welcome {{artist}}</h1>
+<h1>Welcome {{user.username}}</h1>
 <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
     <li class="sub-nav-title"></li>
     <li class="active"><span class="show-for-sr">You're viewing </span></li>
@@ -21,33 +21,26 @@
         <div class="panel">
             <a href="#"><img src="./images/headphones.png" /></a>
             <h5><a href="#">Band Name</a></h5>
-            
+
         </div>
     </div>
 
 
     <div class="large-6 columns">
 
-        <div class="row">
+        <div ng-repeat="song in artistSongList" class="row">
+          <h5>artist: {{song.artist}} Title: {{song.title}}</h5>
           <img id="playButton" src="./images/playButton.png" alt="" />
             <audio controls>
-                <source src="" type="audio/mpeg"> Your browser does not support the audio element.
+                <source ng-src="{{song.file}}" type="audio/mpeg"> Your browser does not support the audio element.
             </audio>
-            <button id="like" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
-            <button id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button>
+            <button ng-click='like()'id="like" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
+            <button ng-click='dislike()'id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button>
+            <h5>Likes: {{song.likes}}</h5>
+            <hr/>
         </div>
 
-        <hr/>
 
-        <div class="row">
-            media player
-        </div>
-
-        <hr/>
-
-        <div class="row">
-            media player
-        </div>
 
     </div>
 
