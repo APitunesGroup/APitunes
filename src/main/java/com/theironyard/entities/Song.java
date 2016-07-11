@@ -11,7 +11,7 @@ public class Song {
 
     @Id
     @GeneratedValue
-    int id;
+    public int id;
 
     @Column(nullable = false)
     String artist;
