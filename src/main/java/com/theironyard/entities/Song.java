@@ -69,7 +69,7 @@ public class Song {
     }
 
     public String getFile() {
-        return file;
+        return "songs/" + file;
     }
 
     public void setFile(String file) {
