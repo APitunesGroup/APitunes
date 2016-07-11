@@ -8,27 +8,29 @@ module.exports = function(app) {
 
 
 
-    $scope.like = function(){
-      console.log("i like this");
-      $http({
-        method: 'POST',
-        url:'/upVote{id}',
-        data: {id},
-      }).then(function(response){
-        songService.getArtistSongs();
-      })
-    };
+      $scope.like = function(id){
+        console.log("i like this");
+        $http({
+          method: 'POST',
+          url:`/upVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+          console.log($scope.artistLikes);
+        })
+      };
 
-    $scope.dislike = function(){
-      console.log("i dont like this");
-      $http({
-        method: 'POST',
-        url:'/downVote{id}',
-        data: {id},
-      }).then(function(response){
-        songService.getArtistSongs();
-      })
-    };
+      $scope.dislike = function(id){
+        console.log("i dont like this");
+        $http({
+          method: 'POST',
+          url:`/downVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+
+        })
+      };
 
 
 
