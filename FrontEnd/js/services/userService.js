@@ -21,6 +21,11 @@ module.exports = function(app){
               $location.path('/artist');
               angular.copy(response.data, currentUser )
               console.log(currentUser);
+            }else if (response.data.isUser === true) {
+              $location.path('/guest');
+              angular.copy(response.data, currentUser )
+              console.log(currentUser);
+
             }
           })
       },
