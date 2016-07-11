@@ -1,13 +1,11 @@
 module.exports = function(app) {
     app.controller('guestController', ['$scope', 'userService', 'songService', '$http', function($scope, userService, songService, $http) {
 
+      $scope.allSongList = songService.getAllSongs();
 
 
 
-    $scope.listSongs = function(){
-        console.log("get some tunes");
-      songService.getAllSongs();
-    };
+
 
 
     $scope.like = function(){
