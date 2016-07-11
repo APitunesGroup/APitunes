@@ -4,23 +4,23 @@ module.exports = function(app) {
       $scope.artistSongList = songService.getArtistSongs();
       $scope.user = userService.getCurrentUser();
 
-      $scope.like = function(){
+      $scope.like = function(id){
         console.log("i like this");
         $http({
           method: 'POST',
-          url:'/upVote{id}',
-          data: {id},
+          url:`/upVote${id}`,
+          data: id,
         }).then(function(response){
           log
         })
       };
 
-      $scope.dislike = function(){
+      $scope.dislike = function(id){
         console.log("i dont like this");
         $http({
           method: 'POST',
-          url:'/downVote{id}',
-          data: {id},
+          url:`/downVote${id}`,
+          data: id,
         }).then(function(response){
           log
         })
