@@ -1,13 +1,11 @@
 module.exports = function(app) {
     app.controller('guestController', ['$scope', 'userService', 'songService', '$http', function($scope, userService, songService, $http) {
 
+      $scope.artistSongList = songService.getArtistSongs();
 
 
 
-    $scope.listSongs = function(){
-        console.log("get some tunes");
-      songService.getAllSongs();
-    };
+
 
 
     $scope.like = function(){
@@ -17,7 +15,7 @@ module.exports = function(app) {
         url:'/upVote{id}',
         data: {id},
       }).then(function(response){
-        log
+        songService.getArtistSongs();
       })
     };
 
@@ -28,7 +26,7 @@ module.exports = function(app) {
         url:'/downVote{id}',
         data: {id},
       }).then(function(response){
-        log
+        songService.getArtistSongs();
       })
     };
 

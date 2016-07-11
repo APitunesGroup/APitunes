@@ -1,15 +1,33 @@
 module.exports = function(app) {
-    app.controller('artistController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
-      $scope.artistSongList = songService.artistSongList;
-      // $scope.artistSongList = songService.allSongList;
-      $scope.user = userService.currentUser;
+    app.controller('artistController', ['$scope', 'userService', 'songService','$http', function($scope, userService, songService, $http) {
+      $scope.artistSongList = songService.getArtistSongs();
+      $scope.user = userService.getCurrentUser();
+
+      $scope.like = function(id){
+        console.log("i like this");
+        $http({
+          method: 'POST',
+          url:`/upVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+          console.log($scope.artistLikes);
+        })
+      };
+
+      $scope.dislike = function(id){
+        console.log("i dont like this");
+        $http({
+          method: 'POST',
+          url:`/downVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+
+        })
+      };
 
 
-
-      userService.getCurrentUser();
-      console.log("user info", userService.currentUser);
-
-        songService.getArtistSongs();
 
 
     }]);

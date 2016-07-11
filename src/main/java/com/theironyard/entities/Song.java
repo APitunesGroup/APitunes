@@ -11,7 +11,7 @@ public class Song {
 
     @Id
     @GeneratedValue
-    int id;
+    public int id;
 
     @Column(nullable = false)
     String artist;
@@ -69,7 +69,7 @@ public class Song {
     }
 
     public String getFile() {
-        return file;
+        return "songs/" + file;
     }
 
     public void setFile(String file) {

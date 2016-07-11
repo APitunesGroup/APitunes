@@ -1,16 +1,34 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('artistController', ['$scope', 'userService', 'songService', function($scope, userService, songService) {
-      $scope.artistSongList = songService.artistSongList;
-      // $scope.artistSongList = songService.allSongList;
-      $scope.user = userService.currentUser;
+    app.controller('artistController', ['$scope', 'userService', 'songService','$http', function($scope, userService, songService, $http) {
+      $scope.artistSongList = songService.getArtistSongs();
+      $scope.user = userService.getCurrentUser();
+
+      $scope.like = function(id){
+        console.log("i like this");
+        $http({
+          method: 'POST',
+          url:`/upVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+          console.log($scope.artistLikes);
+        })
+      };
+
+      $scope.dislike = function(id){
+        console.log("i dont like this");
+        $http({
+          method: 'POST',
+          url:`/downVote${id}`,
+          data: id,
+        }).then(function(response){
+          songService.getArtistSongs();
+
+        })
+      };
 
 
-
-      userService.getCurrentUser();
-      console.log("user info", userService.currentUser);
-
-        songService.getArtistSongs();
 
 
     }]);
@@ -20,13 +38,11 @@ module.exports = function(app) {
 module.exports = function(app) {
     app.controller('guestController', ['$scope', 'userService', 'songService', '$http', function($scope, userService, songService, $http) {
 
+      $scope.artistSongList = songService.getArtistSongs();
 
 
 
-    $scope.listSongs = function(){
-        console.log("get some tunes");
-      songService.getAllSongs();
-    };
+
 
 
     $scope.like = function(){
@@ -36,7 +52,7 @@ module.exports = function(app) {
         url:'/upVote{id}',
         data: {id},
       }).then(function(response){
-        log
+        songService.getArtistSongs();
       })
     };
 
@@ -47,7 +63,7 @@ module.exports = function(app) {
         url:'/downVote{id}',
         data: {id},
       }).then(function(response){
-        log
+        songService.getArtistSongs();
       })
     };
 
@@ -134,18 +150,22 @@ module.exports = function(app){
               method: 'GET',
               url: '/userList',
           }).then(function(response) {
-            console.log("all songs",response);
             angular.copy(response.data, allSongList);
           })
+          // console.log("allsongs arrar", allSongList);
+          return allSonglist
       },
       getArtistSongs: function(){
         $http({
               method: 'GET',
               url: '/artistList',
           }).then(function(response) {
-            console.log("artist songs", response);
+            // console.log("artist songs", response.data);
             angular.copy(response.data, artistSongList);
+            console.log(artistSongList);
           })
+          // console.log("artits", artistSongList);
+          return artistSongList;
       },
     };
   }]);

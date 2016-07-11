@@ -12,18 +12,22 @@ module.exports = function(app){
               method: 'GET',
               url: '/userList',
           }).then(function(response) {
-            console.log("all songs",response);
             angular.copy(response.data, allSongList);
           })
+          // console.log("allsongs arrar", allSongList);
+          return allSonglist
       },
       getArtistSongs: function(){
         $http({
               method: 'GET',
               url: '/artistList',
           }).then(function(response) {
-            console.log("artist songs", response);
+            // console.log("artist songs", response.data);
             angular.copy(response.data, artistSongList);
+            console.log(artistSongList);
           })
+          // console.log("artits", artistSongList);
+          return artistSongList;
       },
     };
   }]);
