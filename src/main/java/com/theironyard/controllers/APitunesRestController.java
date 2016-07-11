@@ -92,7 +92,7 @@ public class APitunesRestController {
         if (audioFile.getContentType().contains("audio")) {
             File dir = new File("Public/songs");
             dir.mkdirs();
-            File songFile = File.createTempFile("song", audioFile.getOriginalFilename(), dir);
+            File songFile = File.createTempFile("songs/song", audioFile.getOriginalFilename(), dir);
             FileOutputStream fos = new FileOutputStream(songFile);
             fos.write(audioFile.getBytes());
             Song song = new Song(artist, title, genre, songFile.getName(), user);
