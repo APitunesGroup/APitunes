@@ -8,6 +8,7 @@ module.exports = function(app) {
 
 
 
+
       $scope.like = function(id){
         console.log("i like this");
         $http({
@@ -31,6 +32,7 @@ module.exports = function(app) {
 
         })
       };
+
 
 
 
