@@ -37,8 +37,6 @@ public class APitunesRestController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User login(@RequestBody User user, HttpSession session) throws Exception {
         User userFromDatabase = users.findFirstByUsername(user.getUsername());
-        System.out.println(user.getUsername());
-        System.out.println(userFromDatabase);
 
         if (userFromDatabase == null) {
             user.setPassword(PasswordStorage.createHash(user.getPassword()));
@@ -111,7 +109,7 @@ public class APitunesRestController {
     }
 
     @RequestMapping(path = "/upVote{id}", method = RequestMethod.POST)
-    public List<Song> upVotedSongList(HttpSession session, @PathVariable int id) {
+    public Integer upVotedSongList(HttpSession session, @PathVariable int id) {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
 
@@ -120,20 +118,21 @@ public class APitunesRestController {
         songs.save(upVotedSong);
 
         List<Song> entireList = (List<Song>) songs.findAll();
-        return entireList;
+
+        return upVotedSong.id;
 
     }
     @RequestMapping(path = "/downVote{id}", method = RequestMethod.POST)
-    public List<Song> downVotedSongList(HttpSession session, @PathVariable int id) {
+    public Integer downVotedSongList(HttpSession session, @PathVariable int id) {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
 
-        Song upVotedSong = songs.findOne(id);
-        upVotedSong.setLikes(upVotedSong.getLikes() - 1);
-        songs.save(upVotedSong);
+        Song downVotedSong = songs.findOne(id);
+        downVotedSong.setLikes(downVotedSong.getLikes() - 1);
+        songs.save(downVotedSong);
 
         List<Song> entireList = (List<Song>) songs.findAll();
-        return entireList;
+        return downVotedSong.id;
     }
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public HttpStatus logout(HttpSession session) {
