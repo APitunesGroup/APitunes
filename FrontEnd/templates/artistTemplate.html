@@ -24,7 +24,7 @@
 
         </div>
     </div>
-
+jk
 
     <div class="large-6 columns">
 
@@ -35,6 +35,10 @@
                 <source ng-src="{{song.file}}" type="audio/mpeg"> Your browser does not support the audio element.
             </audio>
             <div ng-model="artistLikes">
+
+            <!-- <button ng-click='like(song.id)'id="like" ng-hide="like(song.id)" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
+            <button ng-click='dislike(song.id)'id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button> -->
+
                 <button ng-click='like(song.id)'id="like" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
                 <button ng-click='dislike(song.id)'id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button>
             </div>

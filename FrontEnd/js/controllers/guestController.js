@@ -16,6 +16,7 @@ module.exports = function(app) {
         data: {id},
       }).then(function(response){
         songService.getArtistSongs();
+        
       })
     };
 
