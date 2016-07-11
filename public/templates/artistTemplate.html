@@ -29,7 +29,7 @@
     <div class="large-6 columns">
 
         <div ng-repeat="song in artistSongList" class="row">
-          <h5>artist: {{song.artist}} Title: {{song.title}}</h5>
+          <h5><B>Artist:</B> {{song.artist}} <b>Title:</b> {{song.title}}</h5>
           <img id="playButton" src="./images/playButton.png" alt="" />
             <audio controls>
                 <source ng-src="{{song.file}}" type="audio/mpeg"> Your browser does not support the audio element.
@@ -38,7 +38,7 @@
             <button ng-click='like(song.id)'id="like" type="button" name="up"><img src="./images/thumbs-up.png" alt="" /></button>
             <button ng-click='dislike(song.id)'id="dislike" type="button" name="down"><img src="./images/dislike.png" alt="" /></button>
             </div>
-            <h5>Likes: {{song.likes}}</h5>
+            <h5><B>Likes:</B> {{song.likes}}</h5>
             <hr/>
         </div>
 
