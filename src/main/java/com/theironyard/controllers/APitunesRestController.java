@@ -109,7 +109,7 @@ public class APitunesRestController {
     }
 
     @RequestMapping(path = "/upVote{id}", method = RequestMethod.POST)
-    public Integer upVotedSongList(HttpSession session, @PathVariable int id) {
+    public Song  upVotedSongList(HttpSession session, @PathVariable int id) {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
 
@@ -119,11 +119,11 @@ public class APitunesRestController {
 
         List<Song> entireList = (List<Song>) songs.findAll();
 
-        return upVotedSong.id;
+        return upVotedSong;
 
     }
     @RequestMapping(path = "/downVote{id}", method = RequestMethod.POST)
-    public Integer downVotedSongList(HttpSession session, @PathVariable int id) {
+    public Song downVotedSongList(HttpSession session, @PathVariable int id) {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
 
@@ -132,7 +132,7 @@ public class APitunesRestController {
         songs.save(downVotedSong);
 
         List<Song> entireList = (List<Song>) songs.findAll();
-        return downVotedSong.id;
+        return downVotedSong;
     }
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public HttpStatus logout(HttpSession session) {
